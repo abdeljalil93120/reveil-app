@@ -1,0 +1,10 @@
+{
+  "name": "Réveil Mission - Alarme et Tâches",
+  "short_name": "Réveil",
+  "description": "Application de réveil avec missions pour se lever efficacement. Ajoutez-la à votre écran d'accueil.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait"
+}
