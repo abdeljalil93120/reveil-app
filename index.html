@@ -11,46 +11,33 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body>
-  <!-- Écran Alarme -->
   <div id="screen-alarme" class="screen active">
-    <div class="header">
-      <div class="pro-badge">PRO Start</div>
-      <div class="title">Réveil</div>
-      <button id="quick-alarm" class="icon-btn">⏱</button>
-    </div>
-
+    <header class="header">
+      <span class="pro-badge">⚡ PRO Start</span>
+      <span class="menu-dots">•••</span>
+    </header>
     <div class="banner">
       <span class="new-badge">NEW</span>
-      <div>Encore endormi ?<br><strong>Essayez notre nouvelle mission</strong></div>
-      <span>›</span>
+      <p>Encore endormi ?<br>Essayez notre nouvelle mission</p>
     </div>
-
+    <h2 class="section-title">Alarmes</h2>
     <div id="alarm-list"></div>
-
-    <button id="add-alarm" class="fab">+</button>
+    <button id="fab" class="fab">+</button>
   </div>
 
-  <!-- Écran Matin / Habitudes -->
   <div id="screen-matin" class="screen">
-    <div class="header"><div class="title">Matin</div></div>
-    <div class="habits-container">
-      <h2>Quelle habitude veux-tu adopter ?</h2>
-      <div class="habit-item" data-habit="lever">🐣 Se lever tôt</div>
-      <div class="habit-item" data-habit="meds">💊 Prendre ses médicaments</div>
-      <div class="habit-item" data-habit="etirer">💪 S'étirer 5 minutes</div>
-      <div class="habit-item" data-habit="eau">💧 Boire de l'eau</div>
-      <div class="habit-item" data-habit="priere">🙏 Réciter ses prières</div>
-      <div class="habit-item" data-habit="mediter">🧘 Méditer 1 minute</div>
-      <div class="habit-item custom" data-habit="custom">+ Saisir la mienne</div>
+    <h2 class="section-title">Quelle habitude veux-tu adopter ?</h2>
+    <div class="habits-list">
+      <div class="habit-item">🐣 Se lever tôt</div>
+      <div class="habit-item">💊 Prendre ses médicaments</div>
+      <div class="habit-item">💪 S'étirer 5 minutes</div>
+      <div class="habit-item">💧 Boire de l'eau</div>
+      <div class="habit-item">🙏 Réciter ses prières</div>
+      <div class="habit-item">🧘 Méditer 1 minute</div>
+      <div class="habit-item custom">+ Saisir la mienne</div>
     </div>
   </div>
 
-  <!-- Autres écrans stubs -->
-  <div id="screen-sommeil" class="screen"><div class="header"><div class="title">Sommeil</div></div><p style="text-align:center;margin-top:40px;color:#888;">Bientôt disponible</p></div>
-  <div id="screen-rapport" class="screen"><div class="header"><div class="title">Rapport</div></div><p style="text-align:center;margin-top:40px;color:#888;">Bientôt disponible</p></div>
-  <div id="screen-reglage" class="screen"><div class="header"><div class="title">Réglage</div></div><p style="text-align:center;margin-top:40px;color:#888;">Bientôt disponible</p></div>
-
-  <!-- Bottom Nav -->
   <nav class="bottom-nav">
     <div class="nav-item active" data-screen="alarme">⏰<br>Alarme</div>
     <div class="nav-item" data-screen="sommeil">🌙<br>Sommeil</div>
@@ -59,16 +46,14 @@
     <div class="nav-item" data-screen="reglage">⚙️<br>Réglage</div>
   </nav>
 
-  <!-- Modal Création Alarme -->
+  <!-- Editor Modal -->
   <div id="editor-modal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <span>Réveil</span>
+        <h2>Réveil</h2>
         <button id="close-editor" class="close-btn">✕</button>
       </div>
-      <div class="time-picker">
-        <input type="time" id="alarm-time" value="06:30">
-      </div>
+      <input type="time" id="alarm-time" value="06:00" class="time-input">
       <div class="days-selector" id="day-selector">
         <button class="day-btn" data-day="0">D</button>
         <button class="day-btn" data-day="1">L</button>
@@ -79,38 +64,16 @@
         <button class="day-btn" data-day="6">S</button>
       </div>
       <label class="daily-check"><input type="checkbox" id="daily"> Quotidien</label>
-
-      <div class="section">
-        <div class="section-title">Mission <span id="mission-count">0/5</span></div>
-        <select id="mission-select">
+      <div class="mission-section">
+        <h3>Mission</h3>
+        <select id="mission-select" class="select">
           <option value="none">Aucune</option>
           <option value="math">Problèmes de math</option>
           <option value="color">Trouver les tuiles de couleur</option>
           <option value="barcode">Code-barre / QR-code</option>
         </select>
       </div>
-
-      <button class="btn-primary" id="save-alarm">Enregistrer</button>
-    </div>
-  </div>
-
-  <!-- Modal Alarme Rapide -->
-  <div id="quick-modal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span>Alarme rapide</span>
-        <button id="close-quick" class="close-btn">✕</button>
-      </div>
-      <div class="quick-time">+ <span id="quick-min">0</span> min</div>
-      <div class="quick-buttons">
-        <button data-min="1">1 min</button>
-        <button data-min="5">5 min</button>
-        <button data-min="10">10 min</button>
-        <button data-min="15">15 min</button>
-        <button data-min="30">30 min</button>
-        <button data-min="60">1 heure</button>
-      </div>
-      <button class="btn-primary" id="save-quick">Enregistrer</button>
+      <button id="save-alarm" class="save-btn">Enregistrer</button>
     </div>
   </div>
 
