@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Réveil Mission</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+  <div class="header">
+    <div class="title">Réveil</div>
+    <button id="add-alarm" style="background:var(--red);border:none;border-radius:50%;width:44px;height:44px;color:white;font-size:24px;">+</button>
+  </div>
+
+  <div id="alarm-list"></div>
+
+  <div class="nav">
+    <div class="nav-item active">⏰<br>Alarme</div>
+    <div class="nav-item">🌙<br>Sommeil</div>
+    <div class="nav-item">☀️<br>Matin</div>
+    <div class="nav-item">📋<br>Rapport</div>
+    <div class="nav-item">⚙️<br>Réglage</div>
+  </div>
+
+  <!-- Alarm Editor Modal -->
+  <div id="editor-modal" class="modal">
+    <div class="modal-content">
+      <h2 style="text-align:center;margin-bottom:16px;">Réveil</h2>
+      <div style="text-align:center;margin:10px 0;">
+        <input type="time" id="alarm-time" value="06:00" style="font-size:32px;background:transparent;color:white;border:none;">
+      </div>
+      <div class="days" id="day-selector">
+        <button class="day-btn" data-day="0">D</button>
+        <button class="day-btn" data-day="1">L</button>
+        <button class="day-btn" data-day="2">M</button>
+        <button class="day-btn" data-day="3">M</button>
+        <button class="day-btn" data-day="4">J</button>
+        <button class="day-btn" data-day="5">V</button>
+        <button class="day-btn" data-day="6">S</button>
+      </div>
+      <div style="margin:16px 0;">
+        <label>Mission</label>
+        <select id="mission-select" style="width:100%;padding:12px;background:#2c2c2e;color:white;border:none;border-radius:10px;margin-top:8px;">
+          <option value="none">Aucune</option>
+          <option value="math">Problèmes de math</option>
+          <option value="color">Trouver les tuiles de couleur</option>
+          <option value="barcode">Code-barre / QR-code (simulé)</option>
+        </select>
+      </div>
+      <button class="btn-primary" id="save-alarm">Enregistrer</button>
+      <button style="width:100%;margin-top:10px;background:transparent;color:var(--secondary);border:none;padding:10px;" id="cancel-edit">Annuler</button>
+    </div>
+  </div>
+
+  <!-- Mission Modal -->
+  <div id="mission-modal" class="modal">
+    <div class="modal-content" id="mission-content">
+      <!-- Dynamically filled -->
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
